@@ -1,0 +1,25 @@
+{
+  "name": "typescript-aws-lambda-native-idempotency",
+  "version": "1.0.0",
+  "description": "Repository with an example of AWS Lambda using its native idempotency validation in Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/issues"
+  },
+  "homepage": "https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency#readme",
+  "devDependencies": {
+    "@types/node": "^18.13.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.1.6"
+  }
+}
