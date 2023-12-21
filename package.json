@@ -4,7 +4,9 @@
   "description": "Repository with an example of AWS Lambda using its native idempotency validation in Typescript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc --build && npm prune --production",
+    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/v1.ts"
   },
   "repository": {
     "type": "git",
@@ -21,5 +23,15 @@
     "@types/node": "^18.13.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@aws-lambda-powertools/idempotency": "^1.17.0",
+    "@aws-sdk/client-dynamodb": "^3.477.0",
+    "@aws-sdk/client-sqs": "^3.477.0",
+    "@aws-sdk/lib-dynamodb": "^3.477.0",
+    "@smithy/node-http-handler": "^2.2.1",
+    "@types/aws-lambda": "^8.10.130",
+    "install": "^0.13.0",
+    "npm": "^10.2.5"
   }
 }
