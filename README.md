@@ -15,3 +15,5 @@ awslocal dynamodb scan \
 
 awslocal dynamodb delete-table \
     --table-name idempotency
+
+sqs-body-idempotent.ts

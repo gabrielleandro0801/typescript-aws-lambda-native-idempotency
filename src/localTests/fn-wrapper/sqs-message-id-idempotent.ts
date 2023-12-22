@@ -9,7 +9,7 @@ const body = {
 const event: SQSEvent = {
     Records: [
         {
-            messageId: 'fcf296c6-072d-405c-9139-fd118475ab50',
+            messageId: '595a79a7-259a-430d-b493-673998f36a06',
             receiptHandle: 'AQEBmw4M3fhCNhJw/4Tpw8y87G6GZL7k48JeKpYEMcLSakvoJxb98qeHcKrrjxRPquEtbG4AwflfXytfkK5LF1eDbigdLCwaRlA9pPAtcSL7roJEN3QdfB5U93phOTlUx1tbjUEOrJNzz3L1YiC7gr7vz+N7Dwt6BU8vO7JZVC1vGKC3wDC8N6WJnOJfDulVG4GyP1M1tO46KyyxoeyHl2VurFCgOkmpXECzr6p0sTzJqJGC+xr7CV770b/kixW8+BZUdrO64LgokVnJFXY3pwwBHsyTh9upWfvE1tVmRE6V1WLf9vauATP5529uLXmqTDiRNDyhDEhDzxdfmf5Vty4aJ5TyPvNG6dslOSjWi/5kIDy/3148MihL5RXkwJ2M9b0tuUAmQLZ3q/s1LRuYpR9aqg==',
             body: JSON.stringify(body),
             attributes: {
@@ -23,7 +23,7 @@ const event: SQSEvent = {
             messageAttributes: {},
             md5OfBody: '56128e9e0c593f03fd4f141a3de7acc7',
             eventSource: 'aws:sqs',
-            eventSourceARN: 'arn:aws:sqs:us-east-1:806829027567:ccsReportMatera.fifo',
+            eventSourceARN: 'arn:aws:sqs:us-east-1:00000000000:myQueue.fifo',
             awsRegion: 'us-east-1'
         }
     ]

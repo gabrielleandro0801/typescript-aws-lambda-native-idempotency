@@ -15,7 +15,7 @@
     },
     "include": [
         "src/**/*"
-    ],
+, "src/localTests/fn-wrapper/sqs-body-idempotent.ts"    ],
     "exclude": [
         "node_modules",
         ".gitignore",
