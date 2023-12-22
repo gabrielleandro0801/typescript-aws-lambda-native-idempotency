@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc --build && npm prune --production",
-    "function-wrapper-v1": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/function-wrapper-v1.ts"
+    "fn-wrapper-sqs-consumer-full-payload": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/sqs-full-payload-idempotent.ts",
+    "fn-wrapper-sqs-consumer-message-id": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/sqs-message-id-idempotent.ts"
   },
   "repository": {
     "type": "git",

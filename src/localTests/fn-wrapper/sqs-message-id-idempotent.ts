@@ -1,5 +1,6 @@
 import { SQSEvent } from "aws-lambda";
-import { handler } from "../function-wrapper/function-wrapper-v1";
+import { randomUUID } from "node:crypto";
+import { handler } from "../../fn-wrapper/sqs-message-id-idempotent";
 
 const body = {
     name: "Gabriel",
@@ -43,11 +44,22 @@ const context = {
 };
 
 (async () => {
-    console.log("Calling function for the #1 time");
+    console.log(`Calling function for the #1 time with messageId [${event.Records[0].messageId}]`);
     const returnOne: string = await handler(event, context);
     console.log("Returned value:", returnOne, "\n");
 
-    console.log("Calling function for the #2 time");
+    console.log(`Calling function for the #2 time with messageId [${event.Records[0].messageId}]`);
     const returnTwo: string = await handler(event, context);
     console.log("Returned value:", returnTwo, "\n");
+
+    const newMessageId: string = "9ed59e7b-7e84-4c12-9ec6-44cd214dbaac";
+    event.Records[0].messageId = newMessageId;
+
+    console.log(`Calling function for the #1 time with messageId [${event.Records[0].messageId}]`);
+    const returnThree: string = await handler(event, context);
+    console.log("Returned value:", returnThree, "\n");
+
+    console.log(`Calling function for the #2 time with messageId [${event.Records[0].messageId}]`);
+    const returnFour: string = await handler(event, context);
+    console.log("Returned value:", returnFour, "\n");
 })();

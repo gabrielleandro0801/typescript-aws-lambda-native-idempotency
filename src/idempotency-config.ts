@@ -18,12 +18,15 @@ export function getIdempotencyOptions(input: IdempotencyInput): IdempotencyLambd
         tableName: input.table,
     });
 
-    // const idempotencyConfig: IdempotencyConfig = new IdempotencyConfig({
-    //  eventKeyJmesPath: input.attributePath,
-    // });
+    let idempotencyConfig: IdempotencyConfig;
+    if (input.attributePath) {
+        idempotencyConfig = new IdempotencyConfig({
+            eventKeyJmesPath: input.attributePath,
+        });
+    }
 
     return {
         persistenceStore,
-        //  config: idempotencyConfig,
+        config: idempotencyConfig,
     };
 }
