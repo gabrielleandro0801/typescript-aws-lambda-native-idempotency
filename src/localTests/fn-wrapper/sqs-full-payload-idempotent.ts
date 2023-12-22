@@ -1,4 +1,4 @@
-import { SQSEvent } from "aws-lambda";
+import { Context, SQSEvent } from "aws-lambda";
 import { handler } from "../../fn-wrapper/sqs-full-payload-idempotent";
 
 const body = {
@@ -28,7 +28,7 @@ const event: SQSEvent = {
     ]
 }
 
-const context = {
+const context: Context = {
     callbackWaitsForEmptyEventLoop: false,
     functionName: "my-lambda",
     functionVersion: "$LATEST",
@@ -40,14 +40,34 @@ const context = {
     getRemainingTimeInMillis() {
         return 1000;
     },
+    done: function (error?: Error, result?: any): void {
+        throw new Error("Function not implemented.");
+    },
+    fail: function (error: string | Error): void {
+        throw new Error("Function not implemented.");
+    },
+    succeed: function (messageOrObject: any): void {
+        throw new Error("Function not implemented.");
+    }
 };
 
 (async () => {
-    console.log("Calling function for the #1 time");
+    console.log(`Calling function for the #1 time with event [${JSON.stringify(event)}]`);
     const returnOne: string = await handler(event, context);
     console.log("Returned value:", returnOne, "\n");
 
-    console.log("Calling function for the #2 time");
+    console.log(`Calling function for the #2 time with event [${JSON.stringify(event)}]`);
     const returnTwo: string = await handler(event, context);
     console.log("Returned value:", returnTwo, "\n");
+
+    const newReceiptHandle: string = "newReceiptHandle";
+    event.Records[0].receiptHandle = newReceiptHandle;
+
+    console.log(`Calling function for the #1 time with event [${JSON.stringify(event)}]`);
+    const returnThree: string = await handler(event, context);
+    console.log("Returned value:", returnThree, "\n");
+
+    console.log(`Calling function for the #2 time with event [${JSON.stringify(event)}]`);
+    const returnFour: string = await handler(event, context);
+    console.log("Returned value:", returnFour, "\n");
 })();

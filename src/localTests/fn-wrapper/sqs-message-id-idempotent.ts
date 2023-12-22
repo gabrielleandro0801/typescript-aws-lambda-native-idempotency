@@ -1,5 +1,4 @@
-import { SQSEvent } from "aws-lambda";
-import { randomUUID } from "node:crypto";
+import { Context, SQSEvent } from "aws-lambda";
 import { handler } from "../../fn-wrapper/sqs-message-id-idempotent";
 
 const body = {
@@ -29,7 +28,7 @@ const event: SQSEvent = {
     ]
 }
 
-const context = {
+const context: Context = {
     callbackWaitsForEmptyEventLoop: false,
     functionName: "my-lambda",
     functionVersion: "$LATEST",
@@ -41,6 +40,15 @@ const context = {
     getRemainingTimeInMillis() {
         return 1000;
     },
+    done: function (error?: Error, result?: any): void {
+        throw new Error("Function not implemented.");
+    },
+    fail: function (error: string | Error): void {
+        throw new Error("Function not implemented.");
+    },
+    succeed: function (messageOrObject: any): void {
+        throw new Error("Function not implemented.");
+    }
 };
 
 (async () => {

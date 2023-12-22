@@ -17,7 +17,7 @@ async function main(event: SQSEvent, context): Promise<string> {
         const payload = JSON.parse(record.body);
         console.log("===== Processing event =====");
 
-        return "Event already processed!";
+        return "messageId already processed!";
     } catch (error) {
         console.log(error.message);
     }
