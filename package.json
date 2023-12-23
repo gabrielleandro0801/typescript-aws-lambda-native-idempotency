@@ -1,0 +1,37 @@
+{
+  "name": "typescript-aws-lambda-native-idempotency",
+  "version": "1.0.0",
+  "description": "Repository with an example of AWS Lambda using its native idempotency validation in Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc --build && npm prune --production",
+    "fn-wrapper-sqs-full-payload": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/sqs/sqs-full-payload-idempotent.ts",
+    "fn-wrapper-sqs-message-id": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/sqs/sqs-message-id-idempotent.ts",
+    "fn-wrapper-sqs-body": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/sqs/sqs-body-idempotent.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/issues"
+  },
+  "homepage": "https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency#readme",
+  "devDependencies": {
+    "@types/node": "^18.13.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@aws-lambda-powertools/idempotency": "^1.17.0",
+    "@aws-sdk/client-dynamodb": "^3.477.0",
+    "@aws-sdk/client-sqs": "^3.477.0",
+    "@aws-sdk/lib-dynamodb": "^3.477.0",
+    "@smithy/node-http-handler": "^2.2.1",
+    "@types/aws-lambda": "^8.10.130"
+  }
+}
