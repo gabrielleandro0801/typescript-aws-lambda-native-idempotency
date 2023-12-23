@@ -1,23 +1,23 @@
 import { makeIdempotent } from '@aws-lambda-powertools/idempotency';
 import { IdempotencyLambdaHandlerOptions } from '@aws-lambda-powertools/idempotency/types';
-import { SQSEvent, SQSRecord } from 'aws-lambda';
-import { getIdempotencyOptions } from '../idempotency-config';
+import { Context, SQSEvent, SQSRecord } from 'aws-lambda';
+import { getIdempotencyOptions } from '../../idempotency-config';
 
 const idempotencyTable: string = "idempotency";
-const attributePath: string = "Records[0].messageId";
+const attributePath: string = "Records[0].body";
 
 const idempotencyOptions: IdempotencyLambdaHandlerOptions = getIdempotencyOptions({
     table: idempotencyTable,
     attributePath,
 });
 
-async function main(event: SQSEvent, context): Promise<string> {
+async function main(event: SQSEvent, context: Context): Promise<string> {
     try {
         const record: SQSRecord = event.Records[0];
         const payload = JSON.parse(record.body);
         console.log("===== Processing event =====");
 
-        return "messageId already processed!";
+        return "Body already processed!";
     } catch (error) {
         console.log(error.message);
     }
@@ -25,5 +25,6 @@ async function main(event: SQSEvent, context): Promise<string> {
 
 const handler = makeIdempotent(main, idempotencyOptions)
 export {
-    handler,
+    handler
 };
+

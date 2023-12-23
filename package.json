@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc --build && npm prune --production",
-    "fn-wrapper-sqs-consumer-full-payload": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/sqs-full-payload-idempotent.ts",
-    "fn-wrapper-sqs-consumer-message-id": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/sqs-message-id-idempotent.ts",
-    "fn-wrapper-sqs-consumer-body": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/sqs-body-idempotent.ts"
+    "fn-wrapper-sqs-full-payload": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/sqs/sqs-full-payload-idempotent.ts",
+    "fn-wrapper-sqs-message-id": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/sqs/sqs-message-id-idempotent.ts",
+    "fn-wrapper-sqs-body": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/sqs/sqs-body-idempotent.ts"
   },
   "repository": {
     "type": "git",
@@ -32,8 +32,6 @@
     "@aws-sdk/client-sqs": "^3.477.0",
     "@aws-sdk/lib-dynamodb": "^3.477.0",
     "@smithy/node-http-handler": "^2.2.1",
-    "@types/aws-lambda": "^8.10.130",
-    "install": "^0.13.0",
-    "npm": "^10.2.5"
+    "@types/aws-lambda": "^8.10.130"
   }
 }

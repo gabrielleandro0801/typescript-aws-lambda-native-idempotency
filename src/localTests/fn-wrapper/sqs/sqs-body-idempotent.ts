@@ -1,5 +1,5 @@
 import { Context, SQSEvent } from "aws-lambda";
-import { handler } from "../../fn-wrapper/sqs-message-id-idempotent";
+import { handler } from "../../../fn-wrapper/sqs/sqs-body-idempotent";
 
 const body = {
     name: "Gabriel",
@@ -8,7 +8,7 @@ const body = {
 const event: SQSEvent = {
     Records: [
         {
-            messageId: '595a79a7-259a-430d-b493-673998f36a06',
+            messageId: '825bcd02-dea4-4e10-81c9-3c93fd7d253b',
             receiptHandle: 'AQEBmw4M3fhCNhJw/4Tpw8y87G6GZL7k48JeKpYEMcLSakvoJxb98qeHcKrrjxRPquEtbG4AwflfXytfkK5LF1eDbigdLCwaRlA9pPAtcSL7roJEN3QdfB5U93phOTlUx1tbjUEOrJNzz3L1YiC7gr7vz+N7Dwt6BU8vO7JZVC1vGKC3wDC8N6WJnOJfDulVG4GyP1M1tO46KyyxoeyHl2VurFCgOkmpXECzr6p0sTzJqJGC+xr7CV770b/kixW8+BZUdrO64LgokVnJFXY3pwwBHsyTh9upWfvE1tVmRE6V1WLf9vauATP5529uLXmqTDiRNDyhDEhDzxdfmf5Vty4aJ5TyPvNG6dslOSjWi/5kIDy/3148MihL5RXkwJ2M9b0tuUAmQLZ3q/s1LRuYpR9aqg==',
             body: JSON.stringify(body),
             attributes: {
@@ -52,22 +52,24 @@ const context: Context = {
 };
 
 (async () => {
-    console.log(`Calling function for the #1 time with messageId [${event.Records[0].messageId}]`);
+    console.log(`Calling function for the #1 time with body [${JSON.stringify(body)}]`);
     const returnOne: string = await handler(event, context);
     console.log("Returned value:", returnOne, "\n");
 
-    console.log(`Calling function for the #2 time with messageId [${event.Records[0].messageId}]`);
+    console.log(`Calling function for the #2 time with body [${JSON.stringify(body)}]`);
     const returnTwo: string = await handler(event, context);
     console.log("Returned value:", returnTwo, "\n");
 
-    const newMessageId: string = "9ed59e7b-7e84-4c12-9ec6-44cd214dbaac";
-    event.Records[0].messageId = newMessageId;
+    const newBody = {
+        name: "Leandro",
+    };
+    event.Records[0].body = JSON.stringify(newBody);
 
-    console.log(`Calling function for the #1 time with messageId [${event.Records[0].messageId}]`);
+    console.log(`Calling function for the #1 time with body [${JSON.stringify(newBody)}]`);
     const returnThree: string = await handler(event, context);
     console.log("Returned value:", returnThree, "\n");
 
-    console.log(`Calling function for the #2 time with messageId [${event.Records[0].messageId}]`);
+    console.log(`Calling function for the #2 time with body [${JSON.stringify(newBody)}]`);
     const returnFour: string = await handler(event, context);
     console.log("Returned value:", returnFour, "\n");
 })();

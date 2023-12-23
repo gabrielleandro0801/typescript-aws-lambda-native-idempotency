@@ -16,6 +16,11 @@ export function getIdempotencyOptions(input: IdempotencyInput): IdempotencyLambd
     const persistenceStore: DynamoDBPersistenceLayer = new DynamoDBPersistenceLayer({
         awsSdkV3Client: ddbClient,
         tableName: input.table,
+        keyAttr: "identifier",
+        sortKeyAttr: "idempotency_hash",
+        expiryAttr: "expiration",
+        dataAttr: "returned_value",
+        statusAttr: "execution_status",
     });
 
     let idempotencyConfig: IdempotencyConfig;
