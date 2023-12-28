@@ -5,7 +5,7 @@ import { sqsProcessor } from '../../commons/sqs/processor';
 import { getIdempotencyOptions } from '../../idempotency-config';
 
 const idempotencyTable: string = "idempotency";
-const attributePath: string = "Records[0].body";
+const attributePath: string = "Records[0].messageAttributes.version.stringValue";
 
 const idempotencyOptions: IdempotencyLambdaHandlerOptions = getIdempotencyOptions({
     table: idempotencyTable,
@@ -14,7 +14,7 @@ const idempotencyOptions: IdempotencyLambdaHandlerOptions = getIdempotencyOption
 
 async function main(event: SQSEvent, context: Context): Promise<string> {
     try {
-        return sqsProcessor(event, "Body already processed!");
+        return sqsProcessor(event, "messageAttribute already processed!");
     } catch (error) {
         console.log(error.message);
     }

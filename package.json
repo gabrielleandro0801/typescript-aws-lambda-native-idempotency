@@ -9,6 +9,7 @@
     "fn-wrapper-sqs-full-payload": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/sqs/sqs-full-payload-idempotent.ts",
     "fn-wrapper-sqs-message-id": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/sqs/sqs-message-id-idempotent.ts",
     "fn-wrapper-sqs-body": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/sqs/sqs-body-idempotent.ts",
+    "fn-wrapper-sqs-message-attribute": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/sqs/sqs-message-attribute-idempotent.ts",
     "fn-wrapper-apigw-full-path": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/api-gateway/api-gw-full-path-idempotent.ts"
   },
   "repository": {

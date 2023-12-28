@@ -1,5 +1,5 @@
 import { Context, SQSEvent } from "aws-lambda";
-import { handler } from "../../../fn-wrapper/sqs/sqs-message-id-idempotent";
+import { handler } from "../../../fn-wrapper/sqs/sqs-message-attribute-idempotent";
 
 const body = {
     name: "Gabriel",
@@ -57,22 +57,22 @@ const context: Context = {
 };
 
 (async () => {
-    console.log(`Calling function for the #1 time with messageId [${event.Records[0].messageId}]`);
+    console.log(`Calling function for the #1 time with messageAttribute [${JSON.stringify(event.Records[0].messageAttributes)}]`);
     const returnOne: string = await handler(event, context);
     console.log("Returned value:", returnOne, "\n");
 
-    console.log(`Calling function for the #2 time with messageId [${event.Records[0].messageId}]`);
+    console.log(`Calling function for the #2 time with messageAttribute [${JSON.stringify(event.Records[0].messageAttributes)}]`);
     const returnTwo: string = await handler(event, context);
     console.log("Returned value:", returnTwo, "\n");
 
-    const newMessageId: string = "9ed59e7b-7e84-4c12-9ec6-44cd214dbaac";
-    event.Records[0].messageId = newMessageId;
+    const newVersion: string = "2.0";
+    event.Records[0].messageAttributes.version.stringValue = newVersion;
 
-    console.log(`Calling function for the #1 time with messageId [${event.Records[0].messageId}]`);
+    console.log(`Calling function for the #1 time with messageAttribute [${JSON.stringify(event.Records[0].messageAttributes)}]`);
     const returnThree: string = await handler(event, context);
     console.log("Returned value:", returnThree, "\n");
 
-    console.log(`Calling function for the #2 time with messageId [${event.Records[0].messageId}]`);
+    console.log(`Calling function for the #2 time with messageAttribute [${JSON.stringify(event.Records[0].messageAttributes)}]`);
     const returnFour: string = await handler(event, context);
     console.log("Returned value:", returnFour, "\n");
 })();

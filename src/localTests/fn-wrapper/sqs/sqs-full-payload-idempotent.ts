@@ -19,7 +19,12 @@ const event: SQSEvent = {
                 MessageDeduplicationId: "123",
                 MessageGroupId: "abc",
             },
-            messageAttributes: {},
+            messageAttributes: {
+                version: {
+                    stringValue: "1.0",
+                    dataType: "String",
+                },
+            },
             md5OfBody: '56128e9e0c593f03fd4f141a3de7acc7',
             eventSource: 'aws:sqs',
             eventSourceARN: 'arn:aws:sqs:us-east-1:00000000000:myQueue.fifo',
