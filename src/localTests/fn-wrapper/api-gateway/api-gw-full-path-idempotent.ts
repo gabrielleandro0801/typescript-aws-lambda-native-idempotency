@@ -1,5 +1,5 @@
 import { Context } from "aws-lambda";
-import { handler } from "../../../fn-wrapper/api-gateway/api-gw-path-idempotent";
+import { handler } from "../../../fn-wrapper/api-gateway/api-gw-full-path-idempotent";
 
 const event: any = {
     "resource": "/holidays/{date}",
