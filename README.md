@@ -45,3 +45,23 @@ In case you want to delete the table to create it again, run the following comma
 awslocal dynamodb delete-table \
     --table-name idempotency
 ```
+
+## Function Wrapper
+
+### SQS
+
+#### SQS Full Event idempotent
+![Image 1](https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/blob/master/images/fn-wrapper/sqs/sqs-full-event.png)
+![Image 2](https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/blob/master/images/fn-wrapper/sqs/sqs-full-event-data.jpeg)
+
+#### SQS Message Body idempotent
+![Image 1](https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/blob/master/images/fn-wrapper/sqs/sqs-message-body.png)
+![Image 2](https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/blob/master/images/fn-wrapper/sqs/sqs-message-body-data.jpeg)
+
+#### SQS Message ID idempotent
+![Image 1](https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/blob/master/images/fn-wrapper/sqs/sqs-message-id.png)
+![Image 2](https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/blob/master/images/fn-wrapper/sqs/sqs-message-id-data.png)
+
+#### SQS Message Attribute idempotent
+![Image 1](https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/blob/master/images/fn-wrapper/sqs/sqs-message-attribute.png)
+![Image 2](https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/blob/master/images/fn-wrapper/sqs/sqs-message-attribute-data.png)
