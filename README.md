@@ -52,7 +52,7 @@ awslocal dynamodb delete-table \
 
 #### SQS Full Event idempotent
 ![Image 1](https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/blob/master/images/fn-wrapper/sqs/sqs-full-event.png)
-![Image 2](https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/blob/master/images/fn-wrapper/sqs/sqs-full-event-data.jpeg)
+![Image 2](https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/blob/master/images/fn-wrapper/sqs/sqs-full-event-data.png)
 
 #### SQS Message Body idempotent
 ![Image 1](https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/blob/master/images/fn-wrapper/sqs/sqs-message-body.png)
