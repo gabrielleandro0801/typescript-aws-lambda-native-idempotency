@@ -22,4 +22,3 @@ const handler = makeIdempotent(main, idempotencyOptions)
 export {
     handler
 };
-
