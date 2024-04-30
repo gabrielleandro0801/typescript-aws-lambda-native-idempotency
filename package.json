@@ -6,11 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc --build && npm prune --production",
-    "fn-wrapper-sqs-full-payload": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/sqs/sqs-full-payload-idempotent.ts",
-    "fn-wrapper-sqs-message-id": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/sqs/sqs-message-id-idempotent.ts",
-    "fn-wrapper-sqs-body": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/sqs/sqs-body-idempotent.ts",
-    "fn-wrapper-sqs-message-attribute": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/sqs/sqs-message-attribute-idempotent.ts",
-    "fn-wrapper-apigw-full-path": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/localTests/fn-wrapper/api-gateway/api-gw-full-path-idempotent.ts"
+    "execute": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify $1",
+    "fn-wrapper-sqs-full-payload": "npm run execute src/localTests/fn-wrapper/sqs/sqs-full-payload-idempotent.ts",
+    "fn-wrapper-sqs-message-id": "npm run execute src/localTests/fn-wrapper/sqs/sqs-message-id-idempotent.ts",
+    "fn-wrapper-sqs-body": "npm run execute src/localTests/fn-wrapper/sqs/sqs-body-idempotent.ts",
+    "fn-wrapper-sqs-message-attribute": "npm run execute src/localTests/fn-wrapper/sqs/sqs-message-attribute-idempotent.ts",
+    "fn-wrapper-apigw-full-path": "npm run execute src/localTests/fn-wrapper/api-gateway/api-gw-full-path-idempotent.ts"
   },
   "repository": {
     "type": "git",
@@ -24,19 +25,19 @@
   },
   "homepage": "https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency#readme",
   "devDependencies": {
-    "@types/express": "^4.17.21",
-    "@types/node": "^18.13.0",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^5.1.6"
+    "@types/express": "4.17.21",
+    "@types/node": "20.12.7",
+    "ts-node-dev": "2.0.0",
+    "typescript": "5.4.5"
   },
   "dependencies": {
-    "@aws-lambda-powertools/idempotency": "^1.17.0",
-    "@aws-sdk/client-dynamodb": "^3.477.0",
-    "@aws-sdk/client-sqs": "^3.477.0",
-    "@aws-sdk/lib-dynamodb": "^3.477.0",
-    "@smithy/node-http-handler": "^2.2.1",
-    "@types/aws-lambda": "^8.10.130",
-    "express": "^4.18.2",
-    "serverless-http": "^3.2.0"
+    "@aws-lambda-powertools/idempotency": "2.1.0",
+    "@aws-sdk/client-dynamodb": "3.565.0",
+    "@aws-sdk/client-sqs": "3.565.0",
+    "@aws-sdk/lib-dynamodb": "3.565.0",
+    "@smithy/node-http-handler": "2.5.0",
+    "@types/aws-lambda": "8.10.137",
+    "express": "4.19.2",
+    "serverless-http": "3.2.0"
   }
 }
