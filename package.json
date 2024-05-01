@@ -10,6 +10,7 @@
     "fn-wrapper-sqs-full-payload": "npm run execute src/localTests/fn-wrapper/sqs/sqs-full-payload-idempotent.ts",
     "fn-wrapper-sqs-message-id": "npm run execute src/localTests/fn-wrapper/sqs/sqs-message-id-idempotent.ts",
     "fn-wrapper-sqs-body": "npm run execute src/localTests/fn-wrapper/sqs/sqs-body-idempotent.ts",
+    "fn-wrapper-sqs-body-field": "npm run execute src/localTests/fn-wrapper/sqs/sqs-body-field-idempotent.ts",
     "fn-wrapper-sqs-message-attribute": "npm run execute src/localTests/fn-wrapper/sqs/sqs-message-attribute-idempotent.ts",
     "fn-wrapper-apigw-full-path": "npm run execute src/localTests/fn-wrapper/api-gateway/api-gw-full-path-idempotent.ts"
   },
