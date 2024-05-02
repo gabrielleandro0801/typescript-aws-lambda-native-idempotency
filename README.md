@@ -60,11 +60,10 @@ awslocal dynamodb delete-table \
 
 #### SQS Message Body field idempotent
 ![Image 3](https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/blob/master/images/fn-wrapper/sqs/sqs-message-body-field.png)
-![Image 4](https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/blob/master/images/fn-wrapper/sqs/sqs-message-body-field-data.jpeg)
+![Image 4](https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/blob/master/images/fn-wrapper/sqs/sqs-message-body-field-data.png)
 
 #### SQS Message Body multiple fields idempotent
-![Image 3](https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/blob/master/images/fn-wrapper/sqs/sqs-message-body-mutliple-fields.png)
-![Image 4](https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/blob/master/images/fn-wrapper/sqs/sqs-message-body-mutliple-fields-data.jpeg)
+
 
 #### SQS Message ID idempotent
 ![Image 5](https://github.com/gabrielleandro0801/typescript-aws-lambda-native-idempotency/blob/master/images/fn-wrapper/sqs/sqs-message-id.png)
